@@ -1,0 +1,1191 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Ubuntu:ital,wght@0,300;1,400&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@700&display=swap" rel="stylesheet">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
+    <!-- <script id="gray_sketch" src="color_classes.js"></script> -->
+    <script id="colors_sketch" src="colors.js"></script>
+    <!-- <script id="rect_sketch" src="rectangle.js"></script>
+    <script id="elli_sketch" src="ellipse.js"></script> -->
+    <script src="shapes.js"></script>
+    <script id="bkg_sketch" src="background.js"></script>
+    <script id="logo" src="logo_sketch.js"></script>
+
+    <title>Processing - Tutorial</title>
+</head>
+
+<body>
+
+    <aside>
+        <nav id="navbar">
+            <div id="logo_div">
+            </div>
+            <ol id="list_navbar">
+                <a href="#section_1" class="active_nav_item">
+                    <li class="item_navbar">Download Processing
+                    </li>
+                </a>
+                <a href="#section_2">
+                    <li class="item_navbar">First drawing</li>
+                </a>
+                <a href="#section_3">
+                    <li class="item_navbar">Coordinates and arguments</li>
+                </a>
+                <a href="#section_4">
+                    <li class="item_navbar">Shapes</li>
+                </a>
+                <a href="#section_5">
+                    <li class="item_navbar">Colors</li>
+                </a>
+                <a href="#section_6">
+                    <li class="item_navbar">Background, fill, stroke and size</li>
+                </a>
+                <a href="#section_7">
+                    <li class="item_navbar">Project I</li>
+                </a>
+            </ol>
+        </nav>
+    </aside>
+
+
+
+    <main>
+        <a href="#title" id="back_top_btn">
+            <div id="back_top"> </div>
+        </a>
+
+        <h1 id="title">Processing Tutorial</h1>
+        <section id="section_1">
+            <h2 class="title_section">Download Processing</h2>
+
+            <p>First of all, be sure you already downloaded Processing from the <a
+                    href="https://processing.org/download">official website</a>. Click the link that corresponds to the
+                type of computer you’re using. Once the download is over, extract the data
+                on a folder of your choice (make it easy to reach, this is where you will launch Processing everytime!).
+                Open this folder, and double click on <span class="code_text">processing.exe</span>. A new windows
+                should open; this is where you’ll
+                be writing your code.</p>
+
+            <p>Similar to how Microsoft Word and Google Docs help you edit text, code editors like this help you write
+                code. The Processing editor includes some handy features like syntax highlighting (coloring the text) to
+                make it easier to read your code,
+                and a play button (the triangular button in the upper-left corner) to make it easier to run your code.
+            </p>
+
+
+
+        </section>
+
+        <section id="section_2">
+            <h2 class="title_section">First drawing with Processing</h2>
+            <h3 class="subtitle" data-text="Draw me a circle">Draw me a circle</h3>
+            <p>In your Processing editor, type the following line of code and click the play button (note, you can also
+                press <span class="code_text">Ctrl+R</span> on your keyboard):</p>
+
+            <div class="code-area">
+                <pre>
+                        <code >
+    circle(40, 30, 50);</code>
+                    </pre>
+                <button class="copy_button" onclick="copyClipboard(this)" onmouseout="outFunc(this)">Copy code</a>
+            </div>
+
+            <span class="info warning" data-text="Warning: "> <span class="material-icons-outlined">
+                </span>Don't forget the ending ";"</span>
+            <p>When you click the play button, Processing runs the code you just wrote. You should see a window that
+                looks like this:</p>
+
+            <img class="img_steps" src="images/step1.png" alt="circle in a canvas">
+
+
+            <p>In fact, what you wrote on the editor is called <span class="emph">an instruction</span>, or <span
+                    class="emph">a function</span>. In other words, you asked to your computer to execute a specific
+                action, in that case drawing a circle. We will enter more in details about the numbers in the
+                parenthesis you also wrote a bit later, but first, let's try to draw another shape, say a rectangle.
+            </p>
+
+            <h3 class="subtitle">Draw me a rectangle, part I</h3>
+            <p>Considering the previous example, we can try to guess what could be such the corresponding instruction.
+                Since the previous function was circle to draw a circle, it seems legitimate to try the following code.
+                In the editor, type this:</p>
+
+            <div class="code-area wrong">
+                <pre>
+                    <code >
+    rectangle(40, 30, 20, 20); </code>
+                </pre>
+            </div>
+
+            <p>
+                Congratulations, you just had your first programming error in Processing. Don't worry, this is a common
+                event in programming.</p>
+
+            <blockquote>Okay, but what just happened?</blockquote>
+
+            <p>
+                As mentionned earlier, to ask your computer to draw a rectangle, you need the corresponding instruction.
+                We assumed the instruction was <span class="code_text">rectangle</span> (which was a fair guess), but it
+                turns out that the correct instruction is
+                <span class="code_text">rect</span>. </p>
+            <blockquote>Wait, it didn't work just for that?</blockquote>
+            <p> Yes, just for that. Without entering into the technical details, the computer is limited to understand
+                very specific words and if you do not use these words, it will not work. And somehow, it makes sense: it
+                is similar that someone asking you to do a task (no matter how simple it
+                is), but in a language you don't know...</p>
+
+            <p>In fact, the software detected that it didn't know the instruction. Indeed, below the editor, you must
+                have the following message:</p>
+
+
+            <img class="img_steps" src="images/error1.png" alt="error message">
+
+            <p>The message explicitely tells you that the program does not recognise the instruction <span
+                    class="code_text">rectangle</span> (note: to be precise, it tells you it does not know this
+                instruction given <i>with the number wrote in the parenthesis</i>, but for now let us just focus on the
+                fact the instruction <span class="code_text">rectangle</span> does not exist). Every time you will have
+                a syntax error on your code (Spoiler: this will happen a lot, and this is normal), a message will appear
+                here.</p>
+
+            <p>Before finaly drawing our first rectangle, let me show you a very common error in Processing (especially
+                for beginners).</p>
+
+
+            <h3 class="subtitle">Syntax Error - Missing ";"</h3>
+            <p>Let us take back our first command we wrote, and remove the final ";". Thus, you should have the
+                following:</p>
+
+            <div class="code-area wrong">
+                <pre>
+                        <code >
+    circle(40, 30, 50) </code>
+                    </pre>
+            </div>
+
+            <p>Similarly as before, this error message appears below the editor:</p>
+
+            <img class="img_steps" src="images/error2.png" alt="error message">
+
+            <blockquote>Okay, indeed but why is it important?</blockquote>
+
+            <p>Well, it is because this is a typo you will do a lot; probably more than you might think. My goal here is
+                to teach you how to detect this error, to solve them by yourself. So keep in mind the crucial following
+                syntaxic rule:</p>
+
+            <span class="info warning" data-text="Rule: ">Every instruction in Processing ends with a semicolon.</span>
+
+            <h3 class="subtitle">Draw me a rectangle, part II</h3>
+
+            <p>
+                Now we finally know the correct instruction for the rectangle, we know what to write on the editor, that
+                is:
+            </p>
+            <div class="code-area">
+                <pre>
+                    <code >
+    rect(40, 30, 20, 20); </code>
+                </pre>
+                <button class="copy_button" onclick="copyClipboard(this)" onmouseout="outFunc(this)">Copy code</a>
+            </div>
+
+            <p>and launch your program by clicking on the play button (or <span class="code_text">Ctrl+R</span>). You
+                should have the following result: </p>
+
+
+            <img class="img_steps" src="images/step2.png" alt="rectangle in a canvas">
+
+            <p>Now, as promised, let us focus a bit on these numbers in parenthesis we wrote several times now.</p>
+
+        </section>
+
+
+        <section id="section_3">
+            <h2 class="title_section">Coordinates and arguments in Processing</h2>
+            Say I give you a sheet of paper, and ask you to draw me a rectangle on it. I have an exact idea of what
+            rectangle I want, but all I say to you is "draw me a rectangle".
+
+
+            <blockquote>Hmmm, I feel like I'm missing piece of information there, no?</blockquote>
+
+            <p>Exactly ! To draw what I have in mind, you need more data: where I want to have the rectangle drawn, what
+                is its height, its width, eventually even the angle or its color. These are the informations we give to
+                the instruction in the parenthesis: we call them <span class="emph">arguments</span>.</p>
+
+
+
+            <p>Now, take a bit of time to change the arguments of the <span class="code_text">rect</span> function, and
+                relaunch the code each time. Try to understand which argument corresponds to what. </p>
+            <p> If you prefer, you can directly try to change the values with the interactive figure below.</p>
+
+
+            <div id="rect_div_container" class="interactive_shape_container">
+                <div id="rect_div" class="shape_div">
+                </div>
+                <span class="code_text">rect(<input type="number" name="xI" id="xI" class="input_interactive"
+                        value="40">,<input type="number" name="yI" id="yI" class="input_interactive" value="30">,<input
+                        type="number" name="wI" id="wI" class="input_interactive" value="20">,<input type="number"
+                        name="hI" id="hI" class="input_interactive" value="20">);
+                </span>
+            </div>
+
+            <h3 class="subtitle">Coordinates</h3>
+
+            <p>With your previous experiments, you may have understood that the two first numbers change the position of
+                the rectangle. To be precise, the first number corresponds to the x-coordinates and the second to the
+                y-coordinate of the <span class="emph">top-left corner of the rectangle</span>. If the notion of
+                coordinates is not super clear for you, here is a figure to help you understand how it works:</p>
+
+            <img src="images/axis1.png" class="img_steps" alt="axis in Processing">
+
+            <p> Suppose that the canvas of your drawing corresponds to the gray area of the previous figure. This canvas
+                contains (virtually) two axes: the x-axis that corresponds to the top border of the canvas, and the
+                y-axis which is on the left border of the canvas. The x-axis is oriented from left to right, and the
+                y-axis is from top to bottom. At each point of the canvas corresponds a unique pair of numbers, called
+                <span class="emph">coordinates</span> and is written <span class="emph">(n° of unit on the x-axis, n° of
+                    unit on the y-axis)</span>. For exemple, in the figure above, the red point has coordinates (3,1),
+                because on the x-axis, its value is 3 and on the y-axis, its value is 1.</p>
+
+            <span class="info note" data-text="Note: ">If you are used to graphs in mathematics, notice that the
+                origin
+                here is at the top-left corner of the canvas.</span>
+
+
+            <p>
+                You can also see how coordinates work in this interactive figure. Click anywhere on the figure to lock
+                the current point.
+            </p>
+
+            <div id="ellispe_div_container" class="interactive_shape_container">
+                <div id="coord_div" class="shape_div">
+                </div>
+            </div>
+
+
+
+            <p>Here is a small exercise for you:</p>
+
+
+            <div class="exercise">
+                <div class="exercise_title">Exercise</div>
+
+                <div class="exercise_content">
+                    <div class="exercise_question"> Here are 3 additional points on the previous figure. Find their
+                        coordinates.
+
+                        <div id="exercise_coordinates">
+                            <img class="img_steps" src="images/ex_axis.png" alt="option 1">
+                        </div>
+                    </div>
+
+                    <div class="exercise_solution">Solution:
+                        <p class="spoiler" data-text="Hover me to reveal!"><span>Blue point: (1,-1); Green point:
+                                (0,2); Orange point: (4,2)</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <p>Note that the axes also continue for negative numbers. Therefore, it is totally possible to have
+                coordinates like (-20, -22), but it won't appear on your screen.</p>
+
+
+            <h3 class="subtitle">Width and height</h3>
+
+            <p>Moving back to the two last arguments of the <span class="code_text">rect</span> instruction, you may
+                have understood with your previous experiments that they correspond to the <span
+                    class="emph">width</span> and <span class="emph">height</span> of your rectangle. Therefore, we have
+                the following syntax.</p>
+
+
+            <div class="code-area syntax">
+                <pre>
+                                <code >
+    rect(x, y, width, height);</code>
+                            </pre>
+                <button class="syntax_button">Syntax</a>
+            </div>
+
+
+            <p>We finally can totally decrypt the instructions to draw a rectangle, such as <span
+                    class="code_text">rect(50, 10, 20, 30);</span>. The latter asks to your computer to draw a rectangle
+                with its top-left corner in coordinates (50,10) and with
+                width 20 and height 30.</p>
+
+            <blockquote>Hmm, I'm thinking of this only now, but 30 what? What's the unit?</blockquote>
+
+            <p>Indeed, this is something I didn't mention so far. For distance units, Processing uses the pixel (often
+                wrote 'px'). A pixel is the smallest controllable element of a picture represented on the screen. To
+                simplify, every screen is made of millions
+                of small lights of different colors that are on with different intensities. Each of these lights is a
+                pixel. We will come back with the notion of pixel soon when we will mention colors! But first, another
+                exercise:</p>
+
+            <div class="exercise">
+                <div class="exercise_title">Exercise</div>
+
+                <div class="exercise_content">
+                    <div class="exercise_question"> Here are 5 instructions, and 5 drawings or errors. Try to match the
+                        instructions with the corresponding outcomes.
+
+                        <div id="exercise_matching">
+                            <ol type="A">
+                                <li><span class="code_text">rect(20,10,30,80);</span></li>
+                                <li><span class="code_text">rect(10,10,50,10);</span></li>
+                                <li><span class="code_text">rect(20,20,20,20)</span></li>
+                                <li><span class="code_text">rect(0,20,10,30);</span></li>
+                                <li><span class="code_text">rect(0,0,40,40);</span></li>
+                            </ol>
+
+                            <ol type="1">
+                                <li><img class="img_steps" src="images/opt1.png" alt="option 1"></li>
+                                <li><img class="img_steps" src="images/opt2.png" alt="option 2"></li>
+                                <li><img class="img_steps" src="images/opt3.png" alt="option 3"></li>
+                                <li><img class="img_steps" src="images/opt4.png" alt="option 4"></li>
+                                <li><img class="img_steps" src="images/error2.png" alt="option 5"></li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="exercise_solution">Solution:
+                        <p class="spoiler" data-text="Hover me to reveal!"><span>A.3, B.1, C.5, D.2,
+                                E.4</span></p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="section_4">
+            <h2 class="title_section">Shapes, shapes, shapes</h2>
+            <p>
+                In addition to rectangles, Processing already created instructions to draw basic forms. We detail here
+                the different shapes primitives. Instead of simply reading these instructions, I strongly recommend you
+                first try to guess what could be their arguments.
+            </p>
+            <h3 class="subtitle">Circle</h3>
+            <p>
+                We already saw that <span class="code_text">circle</span> was the function to draw... a circle. We can
+                also notice that this function takes 3 numbers as arguments. Can you try to guess which corresponds to
+                what? In other words, if I ask
+                you to draw a circle, what informations would you need?
+            </p>
+
+            <div class="code-area syntax">
+                <pre>
+                        <code >
+    circle(x, y, diam);</code>
+                    </pre>
+                <button class="syntax_button">Syntax</a>
+            </div>
+
+            <p>Where <span class="code_text">x</span> and <span class="code_text">y</span> stands for the coordinate of
+                the <span class="emph">center of the circle</span>, and <span class="code_text">diam</span> stands for
+                its diameter.</p>
+
+            <blockquote>Diameter? Damn I thought about the radius instead...</blockquote>
+
+            <p>And you would have been right! More precisely, it could have had been the radius instead. What was
+                important was to guess there was an information needed for the position, and one for the size, like
+                previously for <span class="code_text">rect</span>.</p>
+
+            <p>In fact, there are some reasons why one would prefer to put the diameter than the raidus here. In the
+                same way that the order of the arguments is <span class="code_text">x, y, diam</span>, and not <span
+                    class="code_text">diam, y, x</span> (or any other ordering): consistency.</p>
+
+            <p>
+                Remember, for rectangles, it was <span class="code_text">x, y, width, height</span>, that is first the
+                position, and then the size informations. For circles, these informations appear in the same order. Do
+                you see now why more the diameter than the radius?
+            </p>
+
+            <blockquote>Hmm, not really...</blockquote>
+
+            <p>
+                Because we can see the diameter of a circle also like its width and height! Therefore, this is
+                consistent with the rectangle instruction, as well as our next instruction for the ellipse...
+            </p>
+
+            <h3 class="subtitle">Ellipse</h3>
+            <p>
+                Ellipses can be seen as a generalisation of circles with a width and height not necessarily equals. They
+                are fairly common in physics, astronomy and engineering. For example, the orbit of each planet in the
+                solar system is approximately an ellipse.
+            </p>
+
+            <p>
+                There are multiple ways to define an ellipse (excentricity, focus points, etc...). In Processing, we
+                define an ellipse with the position of its center, and its width and height; see figure below.
+            </p>
+            <img class="img_steps" src="images/ellipse1.png" alt="ellipse">
+
+            <p>
+                Therefore, the correct instruction to draw an ellipse is:
+            </p>
+
+            <div class="code-area syntax">
+                <pre>
+                        <code >
+    ellipse(x, y, width, height);</code>
+                    </pre>
+                <button class="syntax_button">Syntax</a>
+            </div>
+
+            <p>
+                Similarly as before, I encourage you to make some tries on your editor, or directly here by changing the
+                values below.
+            </p>
+            <div id="ellispe_div_container" class="interactive_shape_container">
+                <div id="ellipse_div" class="shape_div">
+                </div>
+                <span class="code_text">ellipse(<input type="number" name="xI_e" id="xI_e" class="input_interactive"
+                        value="50">,<input type="number" name="yI_e" id="yI_e" class="input_interactive"
+                        value="50">,<input type="number" name="wI_e" id="wI_e" class="input_interactive"
+                        value="40">,<input type="number" name="hI_e" id="hI_e" class="input_interactive" value="30">);
+                </span>
+            </div>
+
+
+
+            <div class="exercise">
+                <div class="exercise_title">Question</div>
+
+                <div class="exercise_content">
+                    <div class="exercise_question">
+                        <p>
+                            Give two distinct instructions that
+                            draws a circle at position (20, 40) and with radius 15 ?
+                        </p>
+                    </div>
+
+                    <div class="exercise_solution">Solution:
+                        <p class="spoiler" data-text="Hover me to reveal!"><span><span class="code_text">
+                                    circle(20,40,30);</span> </br>
+                                <span class="code_text">ellipse(20,40,30,30);</span> </br>
+                                We have to
+                                multiply the radius by 2 to get the diameter !</span></p>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <h3 class="subtitle">Line</h3>
+
+            <p>The instruction to draw a line in Processing is fairly straightforward; you just need to give the
+                coordinates of the two extremities of the line. Namely, we have:</p>
+
+
+            <div>
+                <div class="code-area syntax">
+                    <pre>
+                        <code >
+    line(x1, y1, x2, y2);</code>
+                    </pre>
+                    <button class="syntax_button" onclick="tryme(this)">Click to try!</a>
+                </div>
+                <div class="try_me" style="--myHeight:130px;">
+                    <div id="line_div" class="shape_div"></div>
+                    <span class="code_text">line(<input type="number" name="xIL1" id="xIL1" class="input_interactive"
+                            value="25">,<input type="number" name="yIL1" id="yIL1" class="input_interactive"
+                            value="06">,<input type="number" name="xIL2" id="xIL2" class="input_interactive"
+                            value="19">,<input type="number" name="yIL2" id="yIL2" class="input_interactive"
+                            value="93">);
+                    </span>
+                </div>
+            </div>
+            <span class="info note" data-text="Note: ">When there is the tag "Click to try", you can directly try the
+                instruction on this page.</span>
+
+            <p>Where <span class="code_text">
+                    (x1, y1)</span> stands for the position of the first extremity and <span class="code_text">
+                    (x2, y2)</span> the position of the second. See the following figure.</p>
+            <img class="img_steps" src="images/lines1.png" alt="line">
+
+
+
+            <blockquote>Wait, wait, wait... What about the thickness? If I ask you to draw a line, I may expect it to be
+                thick or thin !</blockquote>
+
+            <p>Indeed, that's a very good remark ! The creators of Processing could have decided to add an extra
+                argument to determine the thickness of a line. However, they decided to deal with it in another way
+                we'll see later. Besides, note that this thickness question could also have applied for all the other
+                shapes; I could have expected thick strokes for my initial rectangle! But it is true that it is more
+                clear that something is missing (Spoiler: another instruction!) to handle the thickness.</p>
+
+            <!-- <p>
+                Therefore, the correct instruction to draw an ellipse is:
+            </p> -->
+
+
+            <h3 class="subtitle">Triangle</h3>
+
+            Let us now see the instruction for triangles. If you try to think how you can describe a triangle, you
+            may realise there are several ways to do so. However, the easiest way to do so is probably the one used by
+            Processing, that is simply describe the coordinates of its three vertices. Therefore, we have the following
+            syntax:
+
+            <img class="img_steps" src="images/triangle1.png" alt="triangle">
+
+
+            <!-- <p>
+                Therefore, the correct instruction to draw an ellipse is:
+            </p> -->
+
+            <div>
+                <div class="code-area syntax">
+                    <pre>
+                        <code >
+    triangle(x1, y1, x2, y2, x3, y3);</code>
+                    </pre>
+                    <button class="syntax_button" onclick="tryme(this)">Click to try!</a>
+                </div>
+                <div class="try_me" style="--myHeight:130px;">
+                    <div id="triangle_div" class="shape_div"></div>
+                    <span class="code_text">triangle(<input type="number" name="xIT1" id="xIT1"
+                            class="input_interactive" value="30">,<input type="number" name="yIT1" id="yIT1"
+                            class="input_interactive" value="50">,<input type="number" name="xIT2" id="xIT2"
+                            class="input_interactive" value="80">,<input type="number" name="yIT2" id="yIT2"
+                            class="input_interactive" value="60">,<input type="number" name="xIT3" id="xIT3"
+                            class="input_interactive" value="20">,<input type="number" name="yIT3" id="yIT3"
+                            class="input_interactive" value="20">);
+                    </span>
+                </div>
+            </div>
+
+            <p>Some instructions for basic shapes exist in Processing, such as quadrilaterals or arcs. If you want to
+                know more about them, feel free to read their documentation on the official website <a
+                    href="https://processing.org/examples/shapeprimitives.html" target="_blanck">here</a>. The idea of
+                this section was to introduce you some of them, not being exhaustive.</p>
+
+            <blockquote>What about the non-basic ones? What if I want to draw a star for example?</blockquote>
+
+            <p>Technically, you can see a star as several triangles. For exemple, try the following code:</p>
+
+
+            <div class="code-area">
+                <pre>
+                    <code >
+    triangle(50,10,20,70,80,70);
+    triangle(50,90,80,30,20,30);</code>
+                </pre>
+                <button class="copy_button" onclick="copyClipboard(this)" onmouseout="outFunc(this)">Copy code</a>
+            </div>
+
+            <p>You should obtain the following result:</p>
+
+
+            <img class="img_steps" src="images/star1.png" alt="first star">
+
+            <blockquote>This is not exactly what I expected. Can I put colors? And these strokes are a bit annoying...
+            </blockquote>
+
+            <p>Don't worry for the colors and the stroke, we will see how to handle this in the following section. I
+                also understand that this is not exactly what you had in mind. Thus let us see a last instruction that
+                allows you to make more complex shapes (like stars, for example).
+            </p>
+
+
+            <h3 class="subtitle">Complex shapes</h3>
+
+            <p>
+                Processing create functions to draw polygons of any kind. However, the use is a bit more complex than
+                the ones we saw so far.
+            </p>
+
+            <p>
+                Suppose I ask you to draw me a polygon that goes through the points of coordinates (20, 20), (80, 20),
+                (80, 80), and (20, 80), what will you draw?
+            </p>
+
+            <blockquote>Hmm, I'd say it is this square.</blockquote>
+
+
+            <img class="img_steps" src="images/shape1NoCoord.png" alt="wrong shape">
+
+            <p>Hmm, what if I tell you this is not what I had in mind?</p>
+
+            <blockquote>Eh? Where is the problem?</blockquote>
+
+            <p>What if I tell you this is this shape I had in mind?</p>
+            <img class="img_steps" src="images/shape2NoCoord.png" alt="good shape">
+
+            <blockquote>It's absolutely not what you asked me!</blockquote>
+
+            <p>Are you sure? They both go through the exact same vertices, and the ones I told you!</p>
+
+            <div class="container_double_img">
+                <img class="img_steps" src="images/shape1.png" alt="good shape">
+                <img class="img_steps" src="images/shape2.png" alt="good shape">
+            </div>
+
+
+            <blockquote>You're cheating, the ordering on the vertices you gave me was wrong.</blockquote>
+
+            <p>This is precisely where I wanted you to end up by asking you this question: <span class="emph">the order
+                    matters if you define a shape only by its vertices</span>. Note that this could have had happened
+                for the <span class="code_text">line</span> and <span class="code_text">triangle</span> instruction,
+                since both used positions of their vertices. However, I let you convince yourself that a problem such
+                the one we just had cannot happen with less than four vertices.</p>
+
+            <p>Anyway, we can now move to our instructions to define these kind of shapes.</p>
+
+            <blockquote>InstructionS. Plural? </blockquote>
+
+            <p>Yes, this is a triple of instructions: <span class="code_text">beginShape</span>, <span
+                    class="code_text">vertex</span>, and <span class="code_text">endShape</span>. In your editor, try
+                the following code:</p>
+
+
+            <div class="code-area">
+                <pre>
+                    <code>
+    beginShape();
+    vertex(80, 20);
+    vertex(20, 20);
+    vertex(80, 80);
+    vertex(20, 80);
+    endShape(CLOSE);</code>
+                </pre>
+                <button class="copy_button" onclick="copyClipboard(this)" onmouseout="outFunc(this)">Copy code</a>
+            </div>
+
+            <p>You should end up with the figure above, the one I had in mind. Try to change the order of the <span
+                    class="code_text">vertex</span> instructions and see how the result changes each time.</p>
+
+
+
+            <div class="exercise">
+                <div class="exercise_title">Exercise</div>
+
+                <div class="exercise_content">
+                    <div class="exercise_question"> Find one ordering that ends up with the square you had earlier.
+                    </div>
+
+                    <div class="exercise_solution">Solution:
+                        <p class="spoiler" data-text="Hover me to reveal!">There are several solutions to this question,
+                            here is one of them: <span class="code_text">
+                                <br>
+                                beginShape();<br>
+                                vertex(20, 20);<br>
+                                vertex(80, 20);<br>
+                                vertex(80, 80);<br>
+                                vertex(20, 80);<br>
+                                endShape(CLOSE);</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <p>Here is precisely how these instructions work.</p>
+            <p>First, <span class="code_text">beginShape()</span> tells to Processing you are defining a new complex
+                shape. This is the first instruction you have to put when you start to describe such a shape.</p>
+
+            <p>Then, <span class="code_text">vertex(x,y)</span> defines the coordinate of a vertex of the shape. As we
+                saw, the ordering matters. You can put as many vertices as you want.
+            </p>
+
+            <p>Finally, you finish your shape with <span class="code_text">endShape(CLOSE)</span>.
+            </p>
+
+            <blockquote>What does this CLOSE means?</blockquote>
+
+            <p>If you try to remove it from our previous code, you should have this:</p>
+
+            <img class="img_steps" src="images/shapeNotClosed.png" alt="shape not closed">
+
+            <p>It just tells Processing to close the figure by adding a final edge from the last vertex of the shape and
+                the first one.</p>
+
+
+
+            <div class="exercise">
+                <div class="exercise_title">Exercise</div>
+
+                <div class="exercise_content">
+                    <div class="exercise_question"> Write the lines of code to draw a star. <br>
+                        Hint: The previous lines with the triangles and add new vertices may be helpful.
+                    </div>
+
+                    <div class="exercise_solution">Solution:
+                        <p class="spoiler" data-text="Hover me to reveal!">There are several solutions to this question,
+                            here is one of them: <span class="code_text">
+                                <br>
+                                beginShape();<br>
+                                vertex(50,10);<br>
+                                vertex(60,30);<br>
+                                vertex(80,30);<br>
+                                vertex(70,50);<br>
+                                vertex(80,70);<br>
+                                vertex(60,70);<br>
+                                vertex(50,90);<br>
+                                vertex(40,70);<br>
+                                vertex(20,70);<br>
+                                vertex(30,50);<br>
+                                vertex(20,30);<br>
+                                vertex(40,30);<br>
+                                endShape(CLOSE);<br></span>You start to like my ugly solution with two triangles, right?
+                            :)</p>
+                    </div>
+                </div>
+            </div>
+
+            To conclude, we have the following syntax to create the polygone with vertices (x1, y1), (x2, y2),...,(xn,
+            yn) (in this order):
+            <div class="code-area syntax">
+                <pre>
+                    <code >
+    beginShape();
+    vertex(x1,y1);
+    vertex(x2,y2);
+    ...
+    vertex(xn,yn);
+    endShape(CLOSE);</code>
+                </pre>
+                <button class="syntax_button">Syntax</a>
+            </div>
+
+            </div>
+
+        </section>
+
+
+        <section id="section_5">
+            <h2 class="title_section">Colors</h2>
+            <h3 class="subtitle">Fifty shades of gray</h3>
+
+            <p>
+                Imagine you are in a dark room with a flashlight and a white screen in front of you. Suppose that the
+                flashlight has a button that allows you to choose its intensity. By projecting the light on the screen,
+                and changing the value of its intensity, you'll see all the possible shades of gray: from black when the
+                flashlight is totally off, to plain white when it is at its maximum power. You can try to see the
+                different shades of gray with the following interactive figure:
+            </p>
+
+
+            <div id="gray_div" class="canvas_div"></div>
+            You can change the intensity of the light by clicking and dragging the mouse on the flashlight, or by
+            scrolling over it (with Shift pressed).
+
+
+
+
+
+            <blockquote>First, your black room thing is a bit spooky. Then, what's the point?</blockquote>
+
+            <p>This is how shades of gray work in Processing. Using the instruction <span class="code_text">color</span>
+                and an integer between 0 and 255, you can create a gray that goes from plain white to plain black; the
+                higher the number, the brighter the color (like the intensity in our spooky scenario).</p>
+
+            <div class="code-area syntax">
+                <pre>
+                        <code >
+    color(n);</code>
+                    </pre>
+                <button class="syntax_button">Syntax</a>
+            </div>
+
+            <p>
+                Where <span class="code_text">n</span> stands for a number from 0 to 255.
+            </p>
+
+            <blockquote>Why from 0 to 255, and not 0 to 100?</blockquote>
+
+            <p>
+                It would require a long explaination to fully answer this intersting question, but there is (obviously)
+                a
+                reason. At the very base, computers work with binary, that is a way to right information (number,
+                letters,
+                images, programs...) with only 0s and 1s. Without entering into the details, it implies that we often
+                come
+                across numbers that are powers of 2, such as 1, 2, 4, 8, 16, 32, 64, 128 and... 256.
+            </p>
+
+            <blockquote>Yes, but it's 255...</blockquote>
+
+            <p>
+                Correct! But the number of integers from 0 to 255 is 256 (because we have to count the 0)! By the way,
+                if you have
+                ever played to Minecraft, you may have noticed that the powers of 2 are everywhere (size of a stack,
+                highest altitude, etc...). If you are not, just ignore this comment !
+            </p>
+
+
+            <blockquote>Okay, fine. But "<span class="code_text">color</span>", really? These gray shades really lack of
+                color to me...
+            </blockquote>
+
+            <p>
+                I have to admit you are very right! So let us move to real colors!
+            </p>
+
+            <h3 class="subtitle">From pixels to RGB</h3>
+
+            <p>
+                Have you ever looked in detail at what your screen looks like up close? Well, if not, let me show you
+                how it looks like.
+            </p>
+
+
+
+            <figure>
+                <img class="img_steps" src="/images/pixels.jpg" alt="pixels closeup">
+
+                <figcaption class="cite_wiki">By Kprateek88 - Own work, CC BY-SA 4.0, <a
+                        href="https://commons.wikimedia.org/w/index.php?curid=4635158" target="_blanck"> original file
+                        here</a>
+                </figcaption>
+            </figure>
+
+            <blockquote>
+                What? No white pixels? Only red, green and blue?
+            </blockquote>
+
+            <p>
+                No white pixels, but still you seem to see the white, the yellow, the purple, cyan etc from your screen!
+                This is because you can decompose every color in a combinaison of shades of red, green and blue.
+            </p>
+
+            <p>
+                Let us come back in our spooky dark room (sorry for that), but this time you have 3 flashlights: one
+                red, one green, and one blue. Using the interactive figure below, observe how the lights add up to
+                create new colors, including colors not in your three initial colors.
+            </p>
+
+            <div id="colors_div" class="canvas_div"></div>
+
+            <p>
+                In particular, notice that the color you obtain by putting the three intensities at maximum is... white!
+                Spend some time to try to get other colors; how to get yellow, orange, purple?
+            </p>
+
+            <p>
+                Thus, to define a color in Processing, you have to use the following instruction:
+            </p>
+
+            <div class="code-area syntax">
+                <pre>
+                        <code >
+    color(r, g, b);</code>
+                    </pre>
+                <button class="syntax_button">Syntax</a>
+            </div>
+
+            <p>
+                Where <span class="code_text">r, g, b</span> stand for a number from 0 to 255 corresponding to the level
+                of red, green and blue respectively.
+            </p>
+
+            <span class="info note" data-text="Note: ">We call RGB value of a color the triple (r,g,b) that corresponds
+                to this color.</span>
+
+
+            <blockquote>
+                The instruction <span class="code_text">color</span> is already the one we used for gray. Isn't there a
+                problem?
+            </blockquote>
+
+            <p>
+                No, because Processing can easily understand which calls of <span class="code_text">color</span> are for
+                the gray version and the ones for the color version, it just have to check the arguments: if it is only
+                one number, it's gray; if it has three numbers, it's the RGB value. There is a lot more to say about how
+                we can reuse the same name for a function, but for now we will be limited to this.
+            </p>
+
+
+            <div class="exercise">
+                <div class="exercise_title">Exercise</div>
+
+                <div class="exercise_content">
+                    <div class="exercise_question"> Here are 5 instructions, and 5 colors. Try to match the
+                        instructions with the corresponding outcomes. You can use the interactive figure above, but try
+                        first without !
+
+                        <div id="exercise_color">
+                            <ol type="A">
+                                <li><span class="code_text">color(<span style="color:red;">0</span>,0,<span
+                                            style="color:blue;">0</span>);</span></li>
+                                <li><span class="code_text">color(<span style="color:red;">200</span>,0,<span
+                                            style="color:blue;">200</span>);</span>
+                                </li>
+                                <li><span class="code_text">color(<span style="color:red;">150</span>,150,<span
+                                            style="color:blue;">150</span>)</span>
+                                </li>
+                                <li><span class="code_text">color(<span style="color:red;">255</span>,200,<span
+                                            style="color:blue;">40</span>);</span>
+                                </li>
+                                <li><span class="code_text">color(<span style="color:red;">80</span>,50,<span
+                                            style="color:blue;">220</span>);</span>
+                                </li>
+                            </ol>
+
+                            <ol type="1">
+                                <li>
+                                    <div id="ex_color_opt1" class="ex_color_div"></div>
+                                </li>
+                                <li>
+                                    <div id="ex_color_opt2" class="ex_color_div"></div>
+                                </li>
+                                <li>
+                                    <div id="ex_color_opt3" class="ex_color_div"></div>
+                                </li>
+                                <li>
+                                    <div id="ex_color_opt4" class="ex_color_div"></div>
+                                </li>
+                                <li>
+                                    <div id="ex_color_opt5" class="ex_color_div"></div>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+
+                    <div class="exercise_solution">Solution:
+                        <p class="spoiler" data-text="Hover me to reveal!"><span>A.4, B.3, C.2, D.5,
+                                E.1</span></p>
+                    </div>
+                </div>
+            </div>
+
+
+            <span class="info note" data-text="Note: ">
+                You can directly find the RGB value of a color on Processing if you
+                go on Tools > Color selector.</span>
+
+
+            <blockquote>
+                Must say that's nice and finally colorful. But I didn't understand how to use the colors for my
+                drawings?
+            </blockquote>
+
+            <p>Let's dig to this right now!</p>
+        </section>
+
+
+        <section id="section_6">
+            <h2 class="title_section">Background, fill, stroke and size</h2>
+
+            <h3 class="subtitle">Background</h3>
+
+            <p>
+                First,let us change this ugly light gray background. To do so, Processing has the instruction <span
+                    class="code_text">background</span>, that can be used in different ways:
+            </p>
+
+            <div class="code-area syntax">
+                <pre>
+                            <code >
+    background(color(n));</code>
+                        </pre>
+                <button class="syntax_button">Syntax</a>
+            </div>
+
+
+            <div class="code-area syntax">
+                <pre>
+                            <code >
+    background(color(r, g, b));</code>
+                        </pre>
+                <button class="syntax_button">Syntax</a>
+            </div>
+
+            <p>See, we give as an argument of the instruction the color we want to put for the background. As you can
+                guess, the first syntax
+                will give a shade of gray, and the second a RGB color. </p>
+
+            <blockquote>Great, but this is a bit long to write...</blockquote>
+
+            <p>
+                There's hopefully a shorter way to write it, but keep in mind that it is not always the case, and
+                instructions can be long to
+                write. <br>
+                For <span class="code_text">background</span>, here are the shortest versions. Can you guess which
+                corresponds to which?
+            </p>
+
+
+            <div>
+                <div class="code-area syntax">
+                    <pre>
+                            <code >
+    background(n);</code>
+                        </pre>
+                    <button class="syntax_button" onclick="tryme(this)">Click to try</a>
+                </div>
+                <div class="try_me" style="--myHeight:150px;">
+                    <div id="bckGray_div" class="shape_div"></div>
+                    <span class="code_text">background(<input type="number" name="gIbG" id="gIbG"
+                            class="input_interactive" value="204" min="0" max="255">);
+                    </span>
+                </div>
+            </div>
+
+
+            <div>
+                <div class="code-area syntax">
+                    <pre>
+                            <code >
+    background(r, g, b);</code>
+                        </pre>
+                    <button class="syntax_button" onclick="tryme(this)">Click to try</a>
+                </div>
+                <div class="try_me" style="--myHeight:150px;">
+                    <div id="bckRGB_div" class="shape_div"></div>
+                    <span class="code_text">background(<input type="number" name="rIb" id="rIb"
+                            class="input_interactive" value="204" min="0" max="255">,<input type="number" name="gIb"
+                            id="gIb" class="input_interactive" value="204">,<input type="number" name="bIb" id="bIb"
+                            class="input_interactive" value="204">);
+                    </span>
+                </div>
+            </div>
+
+
+            <p>Where <span class="code_text">n, r, g</span> and <span class="code_text">b</span> are numbers from 0 to
+                255.</p>
+
+            <blockquote>Indeed, it seems pretty straightforward. The former is for the gray, and the latter for the
+                colors.</blockquote>
+
+            <p>Correct! Creators of Processing worked well to make it logical, right? Now, let us try to see what it
+                gives in action. In the
+                editor, try to enter the following code:</p>
+
+
+            <div class="code-area">
+                <pre>
+                            <code >
+    background(51, 196, 123);</code>
+                    </pre>
+                <button class="copy_button" onclick="copyClipboard(this)" onmouseout="outFunc(this)">Copy code</a>
+            </div>
+
+            <p>You should obtain the following greenish canvas.</p>
+
+            <img class="img_steps" src="images/background.png" alt="green background">
+
+
+            <p>Feel free to pick the color you prefer, and put it as a background.</p>
+
+
+            <h3 class="subtitle">Fill and stroke</h3>
+            <h3 class="subtitle">Size and overlaps</h3>
+            overlap shapes!!
+
+
+        </section>
+        <section id="section_7">
+            <h2 class="title_section">First project: draw me some art!</h2>
+
+            <h3 class="subtitle">Objective</h3>
+
+        </section>
+
+    </main>
+
+
+
+    <script>
+        function copyClipboard(elem) {
+            var parentDiv = elem.parentNode;
+            var copyText = parentDiv.getElementsByTagName("code")[0].innerHTML;
+            // console.log(copyText);
+            console.log(htmlDecode(copyText));
+            navigator.clipboard.writeText(htmlDecode(copyText));
+            elem.innerHTML = "Copied !";
+        }
+
+        function outFunc(elem) {
+            elem.innerHTML = "Copy Code";
+        }
+
+        function htmlDecode(input) {
+            var doc = new DOMParser().parseFromString(input, "text/html");
+            return doc.documentElement.textContent;
+        }
+
+
+        function tryme(elem) {
+            var parentDiv = elem.parentElement.parentElement;
+            var x = parentDiv.getElementsByClassName("try_me")[0];
+            // $(x).slideToggle();
+            if (x.classList.contains('try_me_active')) {
+                x.className = "try_me";
+            } else {
+
+                x.className = "try_me try_me_active";
+            }
+            // if (x.style.display === "none") {
+            //     x.style.display = "block";
+            //     x.style.top = "40px";
+
+            //     // x.style.width = "500px";
+            // } else {
+            //     x.style.display = "none";
+            //     // x.style.width = "0px";
+            // }
+        }
+
+
+
+
+        $('#navbar ol a').on('click', function (event) {
+            $(this).parent().find('a').removeClass('active_nav_item');
+            $(this).addClass('active_nav_item');
+        });
+
+        $(window).on('scroll', function () {
+            $('section').each(function () {
+                if ($(window).scrollTop() + 50 >= $(this).position().top) {
+                    var id = $(this).attr('id');
+                    $('#navbar ol a').removeClass('active_nav_item');
+                    $('#navbar ol a[href="#' + id + '"]').addClass('active_nav_item');
+                }
+            });
+        });
+
+
+
+        var btbuttonDIV = $('#back_top');
+        var btbuttonA = $('#back_top_btn');
+
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop() > 300) {
+                btbuttonDIV.addClass('show');
+                // btbuttonDIV.removeClass('fade');
+            } else {
+                // if (document.getElementById('back_top').classList.contains('clicked')) {
+                //     btbuttonDIV.removeClass('clicked');
+                // } else {
+                //     btbuttonDIV.addClass('fade');
+                // }
+
+                btbuttonDIV.removeClass('show');
+                btbuttonDIV.removeClass('clicked');
+            }
+        });
+
+        btbuttonA.on('click', function (e) {
+            btbuttonDIV.addClass('clicked');
+        });
+    </script>
+
+    </script>
+
+
+</body>
+
+</html>
