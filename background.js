@@ -11,7 +11,6 @@ var backgroundRGBSketch = function (p) {
         gI = document.getElementById('gIb').value;
         bI = document.getElementById('bIb').value;
         p.background(parseInt(rI, 10), parseInt(gI, 10), parseInt(bI, 10));
-
     };
 };
 
