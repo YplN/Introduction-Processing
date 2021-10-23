@@ -878,6 +878,11 @@ canvas {
         width: 300px !important;
         height: 150px !important;
     }
+
+    .interactive_shape_container {
+        flex-direction: column;
+    }
+
 }
 
 
@@ -892,6 +897,10 @@ canvas {
 
     .info {
         padding: 1em 10px;
+    }
+
+    .try_me_active {
+        flex-direction: column;
     }
 
 }
