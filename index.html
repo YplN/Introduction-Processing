@@ -22,10 +22,7 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>
-    <!-- <script id="gray_sketch" src="color_classes.js"></script> -->
     <script id="colors_sketch" src="colors.js"></script>
-    <!-- <script id="rect_sketch" src="rectangle.js"></script>
-    <script id="elli_sketch" src="ellipse.js"></script> -->
     <script src="shapes.js"></script>
     <script id="bkg_sketch" src="background.js"></script>
     <script id="logo" src="logo_sketch.js"></script>
@@ -218,7 +215,7 @@
 
 
         <section id="section_3">
-            <h2 class="title_section">Coordinates and arguments in Processing</h2>
+            <h2 class="title_section">Coordinates and arguments</h2>
             Say I give you a sheet of paper, and ask you to draw me a rectangle on it. I have an exact idea of what
             rectangle I want, but all I say to you is "draw me a rectangle".
 
@@ -1173,13 +1170,15 @@
         });
 
         $(window).on('scroll', function () {
+            var id;
             $('section').each(function () {
                 if ($(window).scrollTop() + 50 >= $(this).position().top) {
-                    var id = $(this).attr('id');
+                    id = $(this).attr('id');
                     $('#navbar ol a').removeClass('active_nav_item');
-                    $('#navbar ol a[href="#' + id + '"]').addClass('active_nav_item');
                 }
             });
+
+            $('#navbar ol a[href="#' + id + '"]').addClass('active_nav_item');
         });
 
 
