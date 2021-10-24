@@ -246,6 +246,10 @@
                 </span>
             </div>
 
+            <span class="info note" data-text="Note: ">There are several interactive figures like the one above. When
+                there is one of those, you can change the values of the arguments of the instruction, and the resulted
+                canvas will be emulated.</span>
+
             <h3 class="subtitle">Coordinates</h3>
 
             <p>With your previous experiments, you may have understood that the two first numbers change the position of
@@ -529,9 +533,25 @@
                 shapes; I could have expected thick strokes for my initial rectangle! But it is true that it is more
                 clear that something is missing (Spoiler: another instruction!) to handle the thickness.</p>
 
-            <!-- <p>
-                Therefore, the correct instruction to draw an ellipse is:
-            </p> -->
+            <div class="exercise">
+                <div class="exercise_title">Exercise</div>
+
+                <div class="exercise_content">
+                    <div class="exercise_question"> Using only the line instruction, draw a square with a 30px-long side
+                        and its top-left corner in (20, 40).
+                    </div>
+
+                    <div class="exercise_solution">Solution:
+                        <p class="spoiler" data-text="Hover me to reveal!"><span class="code_text">
+                                <br>
+                                line(20, 40, 50, 40);<br>
+                                line(50, 40, 50, 70);<br>
+                                line(50, 70, 20, 70);<br>
+                                line(20, 70, 20, 40);<br></span>
+                            Note that this square does not have an inside-color!</p>
+                    </div>
+                </div>
+            </div>
 
 
             <h3 class="subtitle">Triangle</h3>
@@ -705,14 +725,19 @@
 
             <blockquote>What does this CLOSE means?</blockquote>
 
-            <p>If you try to remove it from our previous code, you should have this:</p>
+            <p>If you try to remove it from the code of the previous exercise, you should have this:</p>
 
             <img class="img_steps" src="images/shapeNotClosed.png" alt="shape not closed">
 
             <p>It just tells Processing to close the figure by adding a final edge from the last vertex of the shape and
                 the first one.</p>
 
-
+            <p>As said previously, these instructions are slightly harder than the ones we saw before. However, they are
+                still pretty logical; you can see these instructions as follow: <span
+                    class="code_text">beginShape()</span> asks the computer
+                to take a pencil. Then, it goes from one <span class="code_text">vertex</span> to the other without
+                lifting the pencil. Finally, <span class="code_text">endShape(CLOSE)</span> close the shape, and put
+                back the pencil.</p>
 
             <div class="exercise">
                 <div class="exercise_title">Exercise</div>
@@ -822,12 +847,12 @@
                 Correct! But the number of integers from 0 to 255 is 256 (because we have to count the 0)! By the way,
                 if you have
                 ever played to Minecraft, you may have noticed that the powers of 2 are everywhere (size of a stack,
-                highest altitude, etc...). If you are not, just ignore this comment !
+                highest altitude, etc...). If you never played this game, just ignore this comment !
             </p>
 
 
             <blockquote>Okay, fine. But "<span class="code_text">color</span>", really? These gray shades really lack of
-                color to me...
+                colors to me...
             </blockquote>
 
             <p>
