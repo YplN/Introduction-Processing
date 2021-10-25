@@ -1124,8 +1124,6 @@
         function copyClipboard(elem) {
             var parentDiv = elem.parentNode;
             var copyText = parentDiv.getElementsByTagName("code")[0].innerHTML;
-            // console.log(copyText);
-            console.log(htmlDecode(copyText));
             navigator.clipboard.writeText(htmlDecode(copyText));
             elem.innerHTML = "Copied !";
         }
@@ -1145,10 +1143,13 @@
             var x = parentDiv.getElementsByClassName("try_me")[0];
             // $(x).slideToggle();
             if (x.classList.contains('try_me_active')) {
-                x.className = "try_me";
+                x.style.transform = 'scaleY(0)';
+                x.style.height = "0px";
+                x.classList.remove('try_me_active');
             } else {
-
-                x.className = "try_me try_me_active";
+                x.style.transform = 'scaleY(1)';
+                x.style.height = "var(--myHeight)";
+                x.classList.add('try_me_active');
             }
             // if (x.style.display === "none") {
             //     x.style.display = "block";
@@ -1170,7 +1171,7 @@
         });
 
         $(window).on('scroll', function () {
-            var id;
+            let id;
             $('section').each(function () {
                 if ($(window).scrollTop() + 50 >= $(this).position().top) {
                     id = $(this).attr('id');
@@ -1181,10 +1182,19 @@
             $('#navbar ol a[href="#' + id + '"]').addClass('active_nav_item');
         });
 
+        const btnLogo = $('#logo_div');
 
+        btnLogo.on('click', function (e) {
+            let asideBar = document.getElementsByTagName('aside')[0];
+            if (asideBar.classList.contains('active')) {
+                asideBar.classList.remove('active');
+            } else {
+                asideBar.classList.add('active');
+            }
+        });
 
-        var btbuttonDIV = $('#back_top');
-        var btbuttonA = $('#back_top_btn');
+        const btbuttonDIV = $('#back_top');
+        const btbuttonA = $('#back_top_btn');
 
         $(window).on('scroll', function () {
             if ($(window).scrollTop() > 300) {

@@ -37,28 +37,28 @@ aside {
     transition: all 0.3s ease-in-out;
 }
 
-aside:hover {
+aside.active {
     width: 200px;
 }
 
-aside:hover #logo_div {
+aside.active #logo_div {
     transform: scale(1);
     margin: 0 auto 10px auto;
 }
 
-aside:hover #navbar {
+aside.active #navbar {
     align-items: normal;
 }
 
-aside:hover #list_navbar a {
+aside.active #list_navbar a {
     font-size: 16px;
 }
 
-aside:hover .item_navbar {
+aside.active .item_navbar {
     width: 170px;
 }
 
-aside:hover .active_nav_item .item_navbar {
+aside.active .active_nav_item .item_navbar {
     width: 160px;
 }
 
@@ -80,7 +80,7 @@ aside:hover .active_nav_item .item_navbar {
     counter-increment: my_counter;
 }
 
-aside:hover #list_navbar li {
+aside.active #list_navbar li {
     text-align: left;
     padding-left: 20px;
     padding-right: 10px;
@@ -195,7 +195,7 @@ aside:hover #list_navbar li {
     color: #fff;
 }
 
-aside:hover~main #back_top {
+aside.active~main #back_top {
     left: 220px;
 }
 
@@ -303,7 +303,7 @@ input[type=number] {
 
 
 
-aside:hover #logo_div {
+aside.active #logo_div {
     margin-left: 50px;
 }
 
@@ -329,7 +329,7 @@ main {
 
 
 
-aside:hover~main #title {
+aside.active~main #title {
     padding-left: 150px;
 }
 
@@ -633,33 +633,20 @@ canvas {
 
 
 .try_me {
-    position: relative;
-    display: none;
-}
-
-.try_me_active {
-    display: flex !important;
+    display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    transform: scaleY(0);
+    height: 0px;
 
-    -webkit-animation-name: canvasAppearing;
-    -webkit-animation-duration: 0.3s;
-    -webkit-animation-iteration-count: 1;
-    -webkit-animation-timing-function: ease-in-out;
-    -webkit-animation-fill-mode: forwards;
+
+    transition: all 0.3s ease-in-out;
 }
 
-@-webkit-keyframes canvasAppearing {
-    from {
-        -webkit-transform: scaleY(0);
-        height: 0px;
-    }
+.try_me_active {}
 
-    to {
-        -webkit-transform: scaleY(1);
-        height: var(--myHeight);
-    }
-}
+
 
 @media screen and (max-width:500px) {
     section {
