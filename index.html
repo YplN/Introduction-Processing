@@ -70,10 +70,14 @@
             <div id="back_top"> </div>
         </a>
 
-        <h1 id="title">Processing Tutorial</h1>
+        <h1 id="title">Processing Tutorial</h1> 
         <section id="section_1">
+            <div class="sticky-title">
             <h2 class="title_section">Download Processing</h2>
-
+            <div class="progress_bar">
+            <div class="progress"></div>
+        </div>
+        </div>
             <p>First of all, be sure you already downloaded Processing from the <a
                     href="https://processing.org/download">official website</a>. Click the link that corresponds to the
                 type of computer you’re using. Once the download is over, extract the data
@@ -93,7 +97,12 @@
         </section>
 
         <section id="section_2">
-            <h2 class="title_section">First drawing with Processing</h2>
+            <div class="sticky-title">
+                <h2 class="title_section">First drawing with Processing</h2>
+            <div class="progress_bar">
+            <div class="progress"></div>
+        </div>
+        </div>
             <h3 class="subtitle" data-text="Draw me a circle">Draw me a circle</h3>
             <p>In your Processing editor, type the following line of code and click the play button (note, you can also
                 press <span class="code_text">Ctrl+R</span> on your keyboard):</p>
@@ -215,7 +224,12 @@
 
 
         <section id="section_3">
-            <h2 class="title_section">Coordinates and arguments</h2>
+            <div class="sticky-title">
+                <h2 class="title_section">Coordinates and arguments</h2> 
+            <div class="progress_bar">
+            <div class="progress"></div>
+        </div>
+        </div>
             Say I give you a sheet of paper, and ask you to draw me a rectangle on it. I have an exact idea of what
             rectangle I want, but all I say to you is "draw me a rectangle".
 
@@ -374,7 +388,12 @@
         </section>
 
         <section id="section_4">
-            <h2 class="title_section">Shapes, shapes, shapes</h2>
+            <div class="sticky-title">
+                <h2 class="title_section">Shapes, shapes, shapes</h2>
+            <div class="progress_bar">
+            <div class="progress"></div>
+        </div>
+        </div>
             <p>
                 In addition to rectangles, Processing already created instructions to draw basic forms. We detail here
                 the different shapes primitives. Instead of simply reading these instructions, I strongly recommend you
@@ -788,7 +807,12 @@
 
 
         <section id="section_5">
-            <h2 class="title_section">Colors</h2>
+            <div class="sticky-title">
+                <h2 class="title_section">Colors</h2>
+            <div class="progress_bar">
+            <div class="progress"></div>
+        </div>
+        </div>
             <h3 class="subtitle">Fifty shades of gray</h3>
 
             <p>
@@ -999,7 +1023,12 @@
 
 
         <section id="section_6">
-            <h2 class="title_section">Background, fill, stroke and size</h2>
+            <div class="sticky-title">
+                <h2 class="title_section">Background, fill, stroke and size</h2>
+            <div class="progress_bar">
+            <div class="progress"></div>
+        </div>
+        </div>
 
             <h3 class="subtitle">Background</h3>
 
@@ -1104,13 +1133,23 @@
 
 
             <h3 class="subtitle">Fill and stroke</h3>
+
+            <p>
+
+            </p>
+
             <h3 class="subtitle">Size and overlaps</h3>
             overlap shapes!!
 
 
         </section>
         <section id="section_7">
-            <h2 class="title_section">First project: draw me some art!</h2>
+            <div class="sticky-title">
+                <h2 class="title_section">First project: draw me some art!</h2>
+            <div class="progress_bar">
+            <div class="progress"></div>
+        </div>
+        </div>
 
             <h3 class="subtitle">Objective</h3>
 
@@ -1215,9 +1254,36 @@
         btbuttonA.on('click', function (e) {
             btbuttonDIV.addClass('clicked');
         });
-    </script>
+
+
+        const Sections = document.getElementsByTagName('section');
+        const wHeight = window.innerHeight;
+        
+        window.addEventListener('scroll', function() {
+            for(const section of Sections)
+            {
+                const progress = getProgress(section);
+                const bar = section.getElementsByClassName('progress')[0];
+                bar.style.width = progress + "%";
+            }    
+            //console.log(progress);
+        });
+
+        function getProgress(section)
+        {   
+            const cHeight = section.offsetHeight;
+            const rect = section.getBoundingClientRect();
+            if(rect.top > 0)
+                return 0;
+
+            if(cHeight <= wHeight)
+                return 100; 
+            return Math.min(100, Math.max(0,(Math.floor(10000*Math.abs(rect.top)/(cHeight - wHeight)/100))));  
+        }
+
 
     </script>
+
 
 
 </body>
